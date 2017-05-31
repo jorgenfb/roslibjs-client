@@ -9,7 +9,7 @@ module.exports = function(events, options) {
 	var onFail = function() {
 		if(connected) {
 			// Going from connected to disconnected, publish disconnected event
-			events.emit("ros:disconnected");
+			events.emit("roslibjs-client:disconnected");
 		}
 		connected = false;
 		setTimeout(connect, options.reconnectInterval);
@@ -21,7 +21,7 @@ module.exports = function(events, options) {
 			return;
 		}
 		connected = true;
-		events.emit('ros:connected', rosInstance);
+		events.emit("roslibjs-client:connected", rosInstance);
 	};
 	
 	var connect = function() {
@@ -38,7 +38,7 @@ module.exports = function(events, options) {
 			return Promise.resolve(rosInstance);
 		}
 		return new Promise(function(resolve) {
-			events.once("ros:connected", resolve);
+			events.once("roslibjs-client:connected", resolve);
 		});
 	};
 	// Open the connection

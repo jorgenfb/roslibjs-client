@@ -5,22 +5,39 @@ This is a wrapper around the roslibjs package aiming to improve shortcomings of 
 
 For the official roslibjs repository please head to [https://github.com/RobotWebTools/roslibjs](https://github.com/RobotWebTools/roslibjs)
 
-### Main Features
+## Main Features
 
 * Fluent API
 * Automatic connection recovery
 * Reconnect support for topics
 
-### Use
+## Documentation
 
 Establishing a reliable connection with ROS is one of the main objectives of this library. It is, also, quite simple and straightforward. Just instantiate the library like so:
 
-	var RosClient = require("roslibjs-client");
-	var client = new RosClient({
+	var RoslibJsClient = require("roslibjs-client");
+	var RosClient = new RoslibJsClient({
 		url: "ws://192.168.0.11:9090"
 	});
 
 Once you instantiate the client, it will connect to the said URL and stay connected. If the connection drops, it will try to reconnect every 5 seconds. You can change this interval by passing an additional *reconnectInterval* option in milliseconds. It is set to 5000 by default.
+
+### Topics
+
+Listening to ROS topics is much more reliable and efficient with this library because the handlers will tolerate connection drops. If your app gets disconnected from ROS, all the topics you have subscribed to are still stored by Roslibjs Client and once the connection is gained, it will instantly resubscribe to all the topics you want to listen.
+
+You also don't have to worry about subscribing to a certain Topic multiple times. Behind the scenes, Roslibjs Client will always subscribe to a Topic once no matter how many handlers you attach to it.
+
+To start listening to a topic simply do:
+
+	var listener = RosClient.topic.subscribe(topic_name, message_type, function(message) {
+		// Here you can handle the message
+	});
+	
+To stop listening to it, simply call `listener.dispose()`
+
+And that's all there is to it, really. This handler will never breakdown.
+
 
 ### Use at your own risk
 
