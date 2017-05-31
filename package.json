@@ -4,7 +4,7 @@
   "description": "A wrapper for roslibjs that is more fault-tolerant and easier to use",
   "main": "src/RosLibJsClient.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests/test.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/milvusrobotics/roslibjs-client#readme",
   "dependencies": {
+    "bluebird": "^3.5.0",
+    "eventemitter2": "^4.1.0",
+    "lodash": "^4.17.4",
     "roslib": "^0.18.0"
   }
 }
