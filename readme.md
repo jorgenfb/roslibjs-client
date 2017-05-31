@@ -36,7 +36,15 @@ To start listening to a topic simply do:
 	
 To stop listening to it, simply call `listener.dispose()`
 
-And that's all there is to it, really. This handler will never breakdown.
+And that's all there is to it, really. This handler will continue to work even after you lose and gain connectivity.
+
+### Service Calls
+
+To make a service call run the following:
+
+	RosClient.service.call(service_name, service_type, payload);
+	
+This returns a promise that will resolve when the service call is finished. Using that promise you can retrieve the response.
 
 
 ### Use at your own risk

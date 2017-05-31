@@ -4,6 +4,7 @@ var EventEmitter2 = require('eventemitter2').EventEmitter2;
 // Internal libraries
 var Connection = require('./Connection');
 var TopicManager = require('./TopicManager');
+var ServiceManager = require('./ServiceManager');
 
 var defaultOptions = {
 	url: "ws://localhost:9090",
@@ -22,5 +23,6 @@ module.exports = function Client(options) {
 	var options = getUserOptions(options);
 	var connection = new Connection(events, options);
 	// Public API
+	this.service = new ServiceManager(connection);
 	this.topic = new TopicManager(events, connection);
 };
