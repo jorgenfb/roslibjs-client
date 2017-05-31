@@ -1,0 +1,26 @@
+{
+  "name": "roslibjs-client",
+  "version": "0.0.1",
+  "description": "A wrapper for roslibjs that is more fault-tolerant and easier to use",
+  "main": "src/RosLibJsClient.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milvusrobotics/roslibjs-client.git"
+  },
+  "keywords": [
+    "roslibjs",
+    "nodejs"
+  ],
+  "author": "Milvus Robotics",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/milvusrobotics/roslibjs-client/issues"
+  },
+  "homepage": "https://github.com/milvusrobotics/roslibjs-client#readme",
+  "dependencies": {
+    "roslib": "^0.18.0"
+  }
+}
