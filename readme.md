@@ -22,7 +22,7 @@ Establishing a reliable connection with ROS is one of the main objectives of thi
 
 Once you instantiate the client, it will connect to the said URL and stay connected. If the connection drops, it will try to reconnect every 5 seconds. You can change this interval by passing an additional *reconnectInterval* option in milliseconds. It is set to 5000 by default.
 
-### Topics
+### Listening to Topics
 
 Listening to ROS topics is much more reliable and efficient with this library because the handlers will tolerate connection drops. If your app gets disconnected from ROS, all the topics you have subscribed to are still stored by Roslibjs Client and once the connection is gained, it will instantly resubscribe to all the topics you want to listen.
 
@@ -37,6 +37,12 @@ To start listening to a topic simply do:
 To stop listening to it, simply call `listener.dispose()`
 
 And that's all there is to it, really. This handler will continue to work even after you lose and gain connectivity.
+
+### Publishing Topic
+
+To publish a message over a ROS Topic run simply:
+
+	RosClient.topic.publish(topic_name, message_type, payload);
 
 ### Service Calls
 

@@ -31,6 +31,18 @@ module.exports = function(events, connection) {
         });
     };
 
+    this.publish = function(name, messageType, payload) {
+        return connection.getInstance().then(function(ros) {
+            var topic = new ROSLIB.Topic({
+                ros: ros,
+                name: name,
+                messageType: messageType
+            });
+            var message = new ROSLIB.Message(payload);
+            topic.publish(message);
+        });
+    };
+
     this.subscribe = function(name, messageType, handler) {
         var signature = getSignature(name, messageType);
         if (signature in registeredTopics) {
