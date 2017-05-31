@@ -23,7 +23,6 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "eventemitter2": "^4.1.0",
-    "lodash": "^4.17.4",
     "roslib": "^0.18.0"
   }
 }

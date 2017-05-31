@@ -1,4 +1,3 @@
-var _ = require("lodash");
 var ROSLIB = require("roslib");
 var Promise = require("bluebird");
 var EventEmitter2 = require('eventemitter2').EventEmitter2;
@@ -12,7 +11,7 @@ var defaultOptions = {
 };
 
 function getUserOptions(options) {
-	return _.assign(defaultOptions, options);
+	return Object.assign({}, defaultOptions, options);
 }
 
 module.exports = function Client(options) {
@@ -21,6 +20,4 @@ module.exports = function Client(options) {
 	var events = new EventEmitter2();
 	var options = getUserOptions(options);
 	var connection = new Connection(events, options);
-
-	
 };
