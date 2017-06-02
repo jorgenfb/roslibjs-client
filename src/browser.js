@@ -1,1 +1,1 @@
-global.RosClient = require("./RosLibJsClient");
+module.exports = global.RosClient = require("./RosLibJsClient");
