@@ -7,3 +7,7 @@ var instance = new RosClient({
 var listener1 = instance.topic.subscribe("/robots_status", "std_msgs/String", function() {
 	console.log("Message received");
 });
+
+instance.on("roslibjs-client:connected", function() {
+	console.log("Connected!");
+});
