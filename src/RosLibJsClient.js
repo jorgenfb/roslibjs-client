@@ -17,12 +17,14 @@ function getUserOptions(options) {
 	return Object.assign({}, defaultOptions, options);
 }
 
-module.exports = function Client(options) {
+function Client(options) {
 	var _this = this;
-	var events = new EventEmitter2();
 	var options = getUserOptions(options);
-	var connection = new Connection(events, options);
+	var connection = new Connection(this, options);
 	// Public API
 	this.service = new ServiceManager(connection);
-	this.topic = new TopicManager(events, connection);
+	this.topic = new TopicManager(this, connection);
 };
+
+Client.prototype.__proto__ = EventEmitter2.prototype;
+module.exports = Client;

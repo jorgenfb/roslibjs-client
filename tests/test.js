@@ -1,7 +1,7 @@
 var RosClient = require('../src/RosLibJsClient');
 
 var instance = new RosClient({
-	url: "ws://192.168.0.11:9090",
+	url: "ws://192.168.0.12:9090",
 });
 
 var listener1 = instance.topic.subscribe("/robots_status", "std_msgs/String", function() {

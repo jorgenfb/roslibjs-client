@@ -1,7 +1,7 @@
 var ROSLIB = require("roslib");
 var Promise = require("bluebird");
 
-module.exports = function(events, options) {
+module.exports = function(client, options) {
 	
 	var rosInstance;
 	var connected = false;
@@ -9,7 +9,7 @@ module.exports = function(events, options) {
 	var onFail = function() {
 		if(connected) {
 			// Going from connected to disconnected, publish disconnected event
-			events.emit("roslibjs-client:disconnected");
+			client.emit("roslibjs-client:disconnected");
 		}
 		connected = false;
 		setTimeout(connect, options.reconnectInterval);
@@ -21,7 +21,7 @@ module.exports = function(events, options) {
 			return;
 		}
 		connected = true;
-		events.emit("roslibjs-client:connected", rosInstance);
+		client.emit("roslibjs-client:connected", rosInstance);
 	};
 	
 	var connect = function() {
@@ -38,7 +38,7 @@ module.exports = function(events, options) {
 			return Promise.resolve(rosInstance);
 		}
 		return new Promise(function(resolve) {
-			events.once("roslibjs-client:connected", resolve);
+			client.once("roslibjs-client:connected", resolve);
 		});
 	};
 	// Open the connection
