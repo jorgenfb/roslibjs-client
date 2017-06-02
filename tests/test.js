@@ -8,6 +8,6 @@ var listener1 = instance.topic.subscribe("/robots_status", "std_msgs/String", fu
 	console.log("Message received");
 });
 
-instance.on("roslibjs-client:connected", function() {
+instance.on("connected", function() {
 	console.log("Connected!");
 });

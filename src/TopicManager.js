@@ -1,4 +1,5 @@
 var ROSLIB = require("roslib");
+var constants = require("./Constants");
 
 module.exports = function(client, connection) {
 
@@ -72,7 +73,7 @@ module.exports = function(client, connection) {
         };
     };
 
-    client.on("roslibjs-client:disconnected", function() {
+    client.on(constants.EVENT_DISCONNECTED, function() {
         // Dispose all topic listeners (not handlers!)
         for (signature in registeredTopics) {
             var topic = registeredTopics[signature];
@@ -83,7 +84,7 @@ module.exports = function(client, connection) {
         }
     });
 
-    client.on("roslibjs-client:connected", function(ros) {
+    client.on(constants.EVENT_CONNECTED, function(ros) {
         // Reconnect disconnected handlers
         for (signature in registeredTopics) {
             var topic = registeredTopics[signature];

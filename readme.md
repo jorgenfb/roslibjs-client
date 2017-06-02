@@ -56,12 +56,12 @@ This returns a promise that will resolve when the service call is finished. Usin
 
 RosClient extends EventEmitter2 and offers two simple events that you can listen to:
 
-1. **roslibjs-client:connected** will be fired once when RosClient connects to the target.
-2. **roslibjs-client:disconnected** will be fired once the connection is lost.
+1. **connected** will be fired once when RosClient connects to the target.
+2. **disconnected** will be fired once the connection is lost.
 
 You can easily listen to these events like so:
 
-	client.on("roslibjs-client:connected", function() {
+	client.on("connected", function() {
 		alert("Connection established!");
 	});
 
