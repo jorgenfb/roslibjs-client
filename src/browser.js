@@ -1,0 +1,1 @@
+global.RosClient = require("./RosLibJsClient");

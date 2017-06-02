@@ -15,8 +15,8 @@ For the official roslibjs repository please head to [https://github.com/RobotWeb
 
 Establishing a reliable connection with ROS is one of the main objectives of this library. It is, also, quite simple and straightforward. Just instantiate the library like so:
 
-	var RoslibJsClient = require("roslibjs-client");
-	var RosClient = new RoslibJsClient({
+	var RosClient = require("roslibjs-client"); // This is not necessary in the browser
+	var client = new RosClient({
 		url: "ws://192.168.0.11:9090"
 	});
 
@@ -30,7 +30,7 @@ You also don't have to worry about subscribing to a certain Topic multiple times
 
 To start listening to a topic simply do:
 
-	var listener = RosClient.topic.subscribe(topic_name, message_type, function(message) {
+	var listener = client.topic.subscribe(topic_name, message_type, function(message) {
 		// Here you can handle the message
 	});
 	
@@ -42,13 +42,13 @@ And that's all there is to it, really. This handler will continue to work even a
 
 To publish a message over a ROS Topic run simply:
 
-	RosClient.topic.publish(topic_name, message_type, payload);
+	client.topic.publish(topic_name, message_type, payload);
 
 ### 3. Service Calls
 
 To make a service call run the following:
 
-	RosClient.service.call(service_name, service_type, payload);
+	client.service.call(service_name, service_type, payload);
 	
 This returns a promise that will resolve when the service call is finished. Using that promise you can retrieve the response.
 
@@ -61,7 +61,7 @@ RosClient extends EventEmitter2 and offers two simple events that you can listen
 
 You can easily listen to these events like so:
 
-	RosClient.on("roslibjs-client:connected", function() {
+	client.on("roslibjs-client:connected", function() {
 		alert("Connection established!");
 	});
 

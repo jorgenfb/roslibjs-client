@@ -1,10 +1,12 @@
 {
   "name": "roslibjs-client",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A wrapper for roslibjs that is more fault-tolerant and easier to use",
   "main": "src/RosLibJsClient.js",
+  "browser": "./src/browser.js",
   "scripts": {
-    "test": "node tests/test.js"
+    "test": "node tests/test.js",
+    "build": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,9 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "eventemitter2": "^4.1.0",
-    "roslib": "^0.18.0"
+    "roslib": "https://github.com/milvusrobotics/roslibjs.git"
+  },
+  "devDependencies": {
+    "webpack": "^2.6.1"
   }
 }
