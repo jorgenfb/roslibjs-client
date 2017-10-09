@@ -6,6 +6,7 @@ module.exports = function(client, options) {
 	
 	var rosInstance;
 	var connected = false;
+	var connectScheduled = false;
 
 	var onFail = function() {
 		if(connected) {
@@ -13,7 +14,11 @@ module.exports = function(client, options) {
 			client.emit(constants.EVENT_DISCONNECTED);
 		}
 		connected = false;
-		setTimeout(connect, options.reconnectInterval);
+
+		if (!connectScheduled) {	
+			connectScheduled = true;
+			setTimeout(connect, options.reconnectInterval);
+		}
 	};
 
 	var onSuccess = function() {
@@ -26,6 +31,8 @@ module.exports = function(client, options) {
 	};
 	
 	var connect = function() {
+		connectScheduled = false;
+
 		rosInstance = new ROSLIB.Ros({
 			url: options.url
 		});
