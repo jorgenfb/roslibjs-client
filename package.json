@@ -1,6 +1,6 @@
 {
   "name": "roslibjs-client",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A wrapper for roslibjs that is more fault-tolerant and easier to use",
   "main": "src/RosLibJsClient.js",
   "browser": "./src/browser.js",

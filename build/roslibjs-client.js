@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 50);
+/******/ 	return __webpack_require__(__webpack_require__.s = 51);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1070,15 +1070,15 @@ var ROSLIB = this.ROSLIB || {
 var assign = __webpack_require__(0);
 
 // Add core components
-assign(ROSLIB, __webpack_require__(35));
-
-assign(ROSLIB, __webpack_require__(32));
-
 assign(ROSLIB, __webpack_require__(36));
 
-assign(ROSLIB, __webpack_require__(38));
+assign(ROSLIB, __webpack_require__(33));
 
-assign(ROSLIB, __webpack_require__(41));
+assign(ROSLIB, __webpack_require__(37));
+
+assign(ROSLIB, __webpack_require__(39));
+
+assign(ROSLIB, __webpack_require__(42));
 
 module.exports = ROSLIB;
 
@@ -6926,7 +6926,7 @@ module.exports = ret;
 
 },{"./es5":13}]},{},[4])(4)
 });                    ;if (typeof window !== 'undefined' && window !== null) {                               window.P = window.Promise;                                                     } else if (typeof self !== 'undefined' && self !== null) {                             self.P = self.Promise;                                                         }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(1), __webpack_require__(46).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(1), __webpack_require__(47).setImmediate))
 
 /***/ }),
 /* 11 */
@@ -7128,7 +7128,7 @@ process.umask = function() { return 0; };
  */
 
 var WebSocket = __webpack_require__(28);
-var socketAdapter = __webpack_require__(34);
+var socketAdapter = __webpack_require__(35);
 
 var Service = __webpack_require__(8);
 var ServiceRequest = __webpack_require__(5);
@@ -8503,16 +8503,25 @@ module.exports = UrdfVisual;
 
 /***/ }),
 /* 29 */
+/***/ (function(module, exports) {
+
+module.exports = {
+	EVENT_CONNECTED: "connected",
+	EVENT_DISCONNECTED: "disconnected"
+};
+
+/***/ }),
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ROSLIB = __webpack_require__(7);
 var Promise = __webpack_require__(10);
-var ee2Lib = __webpack_require__(30), EventEmitter2 = ee2Lib.EventEmitter2 || ee2Lib;
+var ee2Lib = __webpack_require__(31), EventEmitter2 = ee2Lib.EventEmitter2 || ee2Lib;
 
 // Internal libraries
-var Connection = __webpack_require__(47);
-var TopicManager = __webpack_require__(49);
-var ServiceManager = __webpack_require__(48);
+var Connection = __webpack_require__(48);
+var TopicManager = __webpack_require__(50);
+var ServiceManager = __webpack_require__(49);
 
 var defaultOptions = {
 	url: "ws://localhost:9090",
@@ -8538,7 +8547,7 @@ Client.prototype.__proto__ = EventEmitter2.prototype;
 module.exports = Client;
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -9322,7 +9331,7 @@ module.exports = Client;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -9535,7 +9544,7 @@ SimpleActionServer.prototype.setPreempted = function() {
 module.exports = SimpleActionServer;
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Ros = __webpack_require__(12);
@@ -9544,13 +9553,13 @@ var mixin = __webpack_require__(14);
 var action = module.exports = {
     ActionClient: __webpack_require__(16),
     Goal: __webpack_require__(17),
-    SimpleActionServer: __webpack_require__(31)
+    SimpleActionServer: __webpack_require__(32)
 };
 
 mixin(Ros, ['ActionClient', 'SimpleActionServer'], action);
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -9638,7 +9647,7 @@ Param.prototype.delete = function(callback) {
 module.exports = Param;
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9652,7 +9661,7 @@ module.exports = Param;
  */
 
 
-var decompressPng = __webpack_require__(43);
+var decompressPng = __webpack_require__(44);
 var WebSocket = __webpack_require__(28);
 var BSON = null;
 if(typeof bson !== 'undefined'){
@@ -9756,7 +9765,7 @@ module.exports = SocketAdapter;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var mixin = __webpack_require__(14);
@@ -9765,7 +9774,7 @@ var core = module.exports = {
     Ros: __webpack_require__(12),
     Topic: __webpack_require__(13),
     Message: __webpack_require__(4),
-    Param: __webpack_require__(33),
+    Param: __webpack_require__(34),
     Service: __webpack_require__(8),
     ServiceRequest: __webpack_require__(5),
     ServiceResponse: __webpack_require__(18)
@@ -9775,7 +9784,7 @@ mixin(core.Ros, ['Param', 'Service', 'Topic'], core);
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
@@ -9787,7 +9796,7 @@ module.exports = {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -10002,20 +10011,20 @@ module.exports = TFClient;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Ros = __webpack_require__(12);
 var mixin = __webpack_require__(14);
 
 var tf = module.exports = {
-    TFClient: __webpack_require__(37)
+    TFClient: __webpack_require__(38)
 };
 
 mixin(Ros, ['TFClient'], tf);
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports) {
 
 /**
@@ -10045,7 +10054,7 @@ module.exports = UrdfJoint;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -10056,8 +10065,8 @@ module.exports = UrdfJoint;
 
 var UrdfMaterial = __webpack_require__(15);
 var UrdfLink = __webpack_require__(24);
-var UrdfJoint = __webpack_require__(39);
-var DOMParser = __webpack_require__(44).DOMParser;
+var UrdfJoint = __webpack_require__(40);
+var DOMParser = __webpack_require__(45).DOMParser;
 
 // See https://developer.mozilla.org/docs/XPathResult#Constants
 var XPATH_FIRST_ORDERED_NODE_TYPE = 9;
@@ -10146,7 +10155,7 @@ module.exports = UrdfModel;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(0)({
@@ -10156,14 +10165,14 @@ module.exports = __webpack_require__(0)({
     UrdfLink: __webpack_require__(24),
     UrdfMaterial: __webpack_require__(15),
     UrdfMesh: __webpack_require__(25),
-    UrdfModel: __webpack_require__(40),
+    UrdfModel: __webpack_require__(41),
     UrdfSphere: __webpack_require__(26),
     UrdfVisual: __webpack_require__(27)
 }, __webpack_require__(6));
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports) {
 
 /* global document */
@@ -10172,7 +10181,7 @@ module.exports = function Canvas() {
 };
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10183,7 +10192,7 @@ module.exports = function Canvas() {
 
 
 
-var Canvas = __webpack_require__(42);
+var Canvas = __webpack_require__(43);
 var Image = Canvas.Image || global.Image;
 
 /**
@@ -10235,7 +10244,7 @@ module.exports = decompressPng;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {exports.DOMImplementation = global.DOMImplementation;
@@ -10244,7 +10253,7 @@ exports.DOMParser = global.DOMParser;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -10437,7 +10446,7 @@ exports.DOMParser = global.DOMParser;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(11)))
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -10490,30 +10499,36 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(45);
+__webpack_require__(46);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ROSLIB = __webpack_require__(7);
 var Promise = __webpack_require__(10);
+var constants = __webpack_require__(29);
 
 module.exports = function(client, options) {
 	
 	var rosInstance;
 	var connected = false;
+	var connectScheduled = false;
 
 	var onFail = function() {
 		if(connected) {
 			// Going from connected to disconnected, publish disconnected event
-			client.emit("roslibjs-client:disconnected");
+			client.emit(constants.EVENT_DISCONNECTED);
 		}
 		connected = false;
-		setTimeout(connect, options.reconnectInterval);
+
+		if (!connectScheduled) {	
+			connectScheduled = true;
+			setTimeout(connect, options.reconnectInterval);
+		}
 	};
 
 	var onSuccess = function() {
@@ -10522,10 +10537,12 @@ module.exports = function(client, options) {
 			return;
 		}
 		connected = true;
-		client.emit("roslibjs-client:connected", rosInstance);
+		client.emit(constants.EVENT_CONNECTED, rosInstance);
 	};
 	
 	var connect = function() {
+		connectScheduled = false;
+
 		rosInstance = new ROSLIB.Ros({
 			url: options.url
 		});
@@ -10539,7 +10556,7 @@ module.exports = function(client, options) {
 			return Promise.resolve(rosInstance);
 		}
 		return new Promise(function(resolve) {
-			client.once("roslibjs-client:connected", resolve);
+			client.once(constants.EVENT_CONNECTED, resolve);
 		});
 	};
 	// Open the connection
@@ -10547,7 +10564,7 @@ module.exports = function(client, options) {
 };
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ROSLIB = __webpack_require__(7);
@@ -10573,10 +10590,11 @@ module.exports = function(connection) {
 };
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ROSLIB = __webpack_require__(7);
+var constants = __webpack_require__(29);
 
 module.exports = function(client, connection) {
 
@@ -10650,7 +10668,7 @@ module.exports = function(client, connection) {
         };
     };
 
-    client.on("roslibjs-client:disconnected", function() {
+    client.on(constants.EVENT_DISCONNECTED, function() {
         // Dispose all topic listeners (not handlers!)
         for (signature in registeredTopics) {
             var topic = registeredTopics[signature];
@@ -10661,7 +10679,7 @@ module.exports = function(client, connection) {
         }
     });
 
-    client.on("roslibjs-client:connected", function(ros) {
+    client.on(constants.EVENT_CONNECTED, function(ros) {
         // Reconnect disconnected handlers
         for (signature in registeredTopics) {
             var topic = registeredTopics[signature];
@@ -10675,10 +10693,10 @@ module.exports = function(client, connection) {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {global.RosClient = __webpack_require__(29);
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global.RosClient = __webpack_require__(30);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ })
