@@ -1,5 +1,4 @@
 var ROSLIB = require("roslib");
-var Promise = require("bluebird");
 var ee2Lib = require('eventemitter2'), EventEmitter2 = ee2Lib.EventEmitter2 || ee2Lib;
 
 // Internal libraries

@@ -1,9 +1,8 @@
 var ROSLIB = require("roslib");
-var Promise = require("bluebird");
 var constants = require("./Constants");
 
 module.exports = function(client, options) {
-	
+
 	var rosInstance;
 	var connected = false;
 	var connectScheduled = false;
@@ -15,7 +14,7 @@ module.exports = function(client, options) {
 		}
 		connected = false;
 
-		if (!connectScheduled) {	
+		if (!connectScheduled) {
 			connectScheduled = true;
 			setTimeout(connect, options.reconnectInterval);
 		}
@@ -29,7 +28,7 @@ module.exports = function(client, options) {
 		connected = true;
 		client.emit(constants.EVENT_CONNECTED, rosInstance);
 	};
-	
+
 	var connect = function() {
 		connectScheduled = false;
 

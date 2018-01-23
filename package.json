@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/milvusrobotics/roslibjs-client#readme",
   "dependencies": {
-    "bluebird": "^3.5.0",
     "eventemitter2": "^4.1.0",
     "roslib": "https://github.com/RobotWebTools/roslibjs#b47beb5983c18641655343b105b0e699dcd51af3"
   },

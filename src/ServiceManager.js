@@ -1,5 +1,4 @@
 var ROSLIB = require('roslib');
-var Promise = require('bluebird');
 
 module.exports = function(connection) {
 	//
