@@ -66,7 +66,7 @@ module.exports = function(client, connection) {
                     // Close the topic, because no handlers are left
                     if (!registeredTopics[signature].handlers.length && registeredTopics[signature].listener) {
                         registeredTopics[signature].listener.unsubscribe();
-                        registeredTopics[signature].listener = null;
+                        delete registeredTopics[signature];
                     }
                 }
             }
